@@ -1,17 +1,15 @@
 class Application
 
 
-   @@items = ["Apples","Carrots","Pears"]	  @@items = ["Apples","Carrots","Pears"]
-  @@cart = []
+   @@items = ["Apples","Carrots","Pears"]	  
 
 
-   def call(env)	  def call(env)
-    resp = Rack::Response.new	    resp = Rack::Response.new
-@@ -9,12 +10,31 @@ def call(env)
-    if req.path.match(/items/)	    if req.path.match(/items/)
+   def call(env)	
+    resp = Rack::Response.new	    e
+
+    if req.path.match(/items/)	   
       @@items.each do |item|	      @@items.each do |item|
-        resp.write "#{item}\n"	        resp.write "#{item}\n"
-    end
+        resp.write "#{item}\n"	        
 
      elsif req.path.match(/cart/)
       if @@cart.empty?
